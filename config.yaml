@@ -1,0 +1,10 @@
+default_backend: local
+
+backends:
+  - name: local
+    type: echo
+
+  - name: remote
+    type: http
+    url: http://localhost:8081
+    timeout: 60.0

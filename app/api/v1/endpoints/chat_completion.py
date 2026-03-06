@@ -8,6 +8,7 @@ from app.services.inference import InferenceService
 
 router = APIRouter()
 
+
 @router.post("/completions", response_model=ChatCompletionResponse)
 async def chat_completions(
     request: Request,
@@ -19,7 +20,7 @@ async def chat_completions(
     prompt = extract_last_user_prompt(messages_dicts)
 
     payload = {
-        "model": "gpt-3.5-turbo",
+        "model": body.model,
         "messages": messages_dicts,
     }
 
